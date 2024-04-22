@@ -9,6 +9,6 @@ ADD . /app/
 COPY --from=dependencies /app/node_modules /app/node_modules
 RUN npm run build
 
-FROM nginx:stable AS release
+FROM nginx AS release
 COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
